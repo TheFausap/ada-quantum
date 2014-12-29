@@ -1,0 +1,27 @@
+[GENERATED OBJECT FILE]
+b__main.o
+[PROJECT FILES]
+/Users/fausap/ADA-PRJS/libquantum/libquantum.gpr
+20141225072713
+/usr/local/gnat/lib/gnat/gnat_util.gpr
+20140422120958
+/usr/local/gnat/lib/gnat/gnatcoll.gpr
+20141219103518
+/usr/local/gnat/lib/gnat/gnatcoll_gmp.gpr
+20141219111548
+[BOUND OBJECT FILES]
+/Users/fausap/ADA-PRJS/libquantum/obj/opt/libquantum.o
+/Users/fausap/ADA-PRJS/libquantum/obj/opt/main.o
+[GENERATED SOURCE FILES]
+b__main.ads
+b__main.adb
+b__main.ali
+[RESULTING OPTIONS]
+-L/Users/fausap/ADA-PRJS/libquantum/obj/opt/
+-L/Users/fausap/ADA-PRJS/libquantum/obj/opt/
+-L/usr/local/gnat/lib/gnatcoll/static/
+-L/usr/local/gnat/lib/gnat_util/static/
+-L/usr/local/gnat/lib/gcc/x86_64-apple-darwin12.5.0/4.7.4/adalib/
+-static
+/usr/local/gnat/lib/gcc/x86_64-apple-darwin12.5.0/4.7.4/adalib/libgnarl.a
+/usr/local/gnat/lib/gcc/x86_64-apple-darwin12.5.0/4.7.4/adalib/libgnat.a

@@ -142,29 +142,14 @@ begin
 
    Set(a,ipow+1);
    Set(b,ipow-1);
-   --a := quantum_ipow(x1,q/2) + Long_Long_Integer(1);
-   --b := quantum_ipow(x1,q/2) - Long_Long_Integer(1);
 
    Set(a, a rem Nbig);
    Set(b, b rem Nbig);
-
-   --a := quantum_rem(a,N);
-   --b := quantum_rem(b,N);
 
    Get_GCD(Nbig,a,a);
    Get_GCD(Nbig,b,b);
 
    Ada.Text_IO.Put_Line("Done 90%");
-
-   --a := quantum_gcd(Long_Long_Integer(N), a);
-   --b := quantum_gcd(Long_Long_Integer(N), b);
-
-   --Ada.Text_IO.Put("a : ");
-   --Put(a);
-   --New_Line;
-   --Ada.Text_IO.Put("b : ");
-   --Put(b);
-   --New_Line;
 
    if a > b then
       Set(factor,a);

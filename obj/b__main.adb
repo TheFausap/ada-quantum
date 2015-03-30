@@ -330,10 +330,10 @@ package body ada_main is
    end;
 
 --  BEGIN Object file/option list
-   --   /Users/fausap/ADA-PRJS/libquantum/obj/libquantum.o
-   --   /Users/fausap/ADA-PRJS/libquantum/obj/main.o
-   --   -L/Users/fausap/ADA-PRJS/libquantum/obj/
-   --   -L/Users/fausap/ADA-PRJS/libquantum/obj/
+   --   /users/fausap/ADA-PRJS/ada-quantum/obj/libquantum.o
+   --   /users/fausap/ADA-PRJS/ada-quantum/obj/main.o
+   --   -L/users/fausap/ADA-PRJS/ada-quantum/obj/
+   --   -L/users/fausap/ADA-PRJS/ada-quantum/obj/
    --   -L/usr/local/gnat/lib/gnatcoll/static/
    --   -L/usr/local/gnat/lib/gnat_util/static/
    --   -L/usr/local/gnat/lib/gcc/x86_64-apple-darwin12.5.0/4.7.4/adalib/

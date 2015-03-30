@@ -1,0 +1,159 @@
+V "GNAT Lib v2014"
+M P W=b
+A -O3
+A -mmacosx-version-min=10.9
+A -gnatA
+A -gnat12
+A -mtune=core2
+A -fPIC
+P SS ZX
+
+RN
+RV NO_CALENDAR
+RV NO_DELAY
+RV NO_EXCEPTION_HANDLERS
+RV NO_EXCEPTION_PROPAGATION
+RV NO_EXCEPTIONS
+RV NO_FINALIZATION
+RV NO_IO
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_NESTED_FINALIZATION
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_DEFAULT_INITIALIZATION
+RV NO_IMPLEMENTATION_PRAGMAS
+RV SPARK_05
+
+U test%b		test.adb		3453c126 NE OO SU IL
+W ada%s			ada.ads			ada.ali
+W ada.calendar%s	a-calend.adb		a-calend.ali
+W ada.containers%s	a-contai.ads		a-contai.ali
+W ada.containers.vectors%s
+W ada.exceptions%s	a-except.adb		a-except.ali
+W ada.finalization%s	a-finali.adb		a-finali.ali
+W ada.numerics%s	a-numeri.ads		a-numeri.ali
+W ada.numerics.float_random%s  a-nuflra.adb	a-nuflra.ali
+W ada.tags%s		a-tags.adb		a-tags.ali
+W ada.task_identification%s  a-taside.adb	a-taside.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+W gnatcoll%s		gnatcoll.ads		gnatcoll.ali
+W gnatcoll.gmp%s	gnatcoll-gmp.ads	gnatcoll-gmp.ali
+W gnatcoll.gmp.integers%s  gnatcoll-gmp-integers.adb  gnatcoll-gmp-integers.ali
+W gnatcoll.gmp.integers.io%s  gnatcoll-gmp-integers-io.adb  gnatcoll-gmp-integers-io.ali
+W gnatcoll.gmp.integers.number_theoretic%s  gnatcoll-gmp-integers-number_theoretic.adb  gnatcoll-gmp-integers-number_theoretic.ali
+W interfaces%s		interfac.ads		interfac.ali
+W libquantum%s		libquantum.adb		libquantum.ali
+W system%s		system.ads		system.ali
+W system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+W system.soft_links%s	s-soflin.adb		s-soflin.ali
+W system.standard_library%s  s-stalib.adb	s-stalib.ali
+
+D ada.ads		20140406181354 3ffc8e18 ada%s
+D a-calend.ads		20140406181358 d86d6c8c ada.calendar%s
+D a-contai.ads		20140406181357 61e5e089 ada.containers%s
+D a-cgarso.ads		20140406181357 9129bfa8 ada.containers.generic_array_sort%s
+D a-convec.ads		20140406181359 0aaf3975 ada.containers.vectors%s
+D a-convec.adb		20140406181354 a022038f ada.containers.vectors%b
+D a-except.ads		20140406181356 43d57f8c ada.exceptions%s
+D a-finali.ads		20140406181359 69f99942 ada.finalization%s
+D a-ioexce.ads		20140406181358 e4a01f64 ada.io_exceptions%s
+D a-iteint.ads		20140406181354 7c7305e9 ada.iterator_interfaces%s
+D a-numeri.ads		20140406181358 bb51c45a ada.numerics%s
+D a-nucoty.ads		20140406181356 b8c59445 ada.numerics.complex_types%s
+D a-nuflra.ads		20140406181358 49c50e0b ada.numerics.float_random%s
+D a-ngcoty.ads		20140406181355 e7845fd0 ada.numerics.generic_complex_types%s
+D a-stream.ads		20140406181355 1a984740 ada.streams%s
+D a-tags.ads		20140406181357 dc4d0634 ada.tags%s
+D a-taside.ads		20140406181354 9a31e556 ada.task_identification%s
+D a-textio.ads		20140406181359 386df5d4 ada.text_io%s
+D a-unccon.ads		20140406181359 f9eb8f06 ada.unchecked_conversion%s
+D a-uncdea.ads		20140406181359 f15a5ed1 ada.unchecked_deallocation%s
+D gnatcoll.ads		20140410134758 6a5da479 gnatcoll%s
+D gnatcoll-gmp.ads	20140410134758 ddd5983b gnatcoll.gmp%s
+D gnatcoll-gmp-integers.ads  20140410134758 cee36b65 gnatcoll.gmp.integers%s
+D gnatcoll-gmp-integers-io.ads  20140410134758 42bcd6fe gnatcoll.gmp.integers.io%s
+D gnatcoll-gmp-integers-number_theoretic.ads  20140410134758 23164dd9 gnatcoll.gmp.integers.number_theoretic%s
+D gnatcoll-gmp-lib.ads	20140410134758 e891d873 gnatcoll.gmp.lib%s
+D interfac.ads		20140406181359 69adb1b9 interfaces%s
+D i-c.ads		20140406181358 5421119b interfaces.c%s
+D i-cstrin.ads		20140406181357 341d0ddf interfaces.c.strings%s
+D i-cstrea.ads		20140406181357 febc86ed interfaces.c_streams%s
+D libquantum.ads	20141230175846 e4ccebd9 libquantum%s
+D system.ads		20140406181354 f2f2d889 system%s
+D s-atacco.ads		20140406181355 4c36d12f system.address_to_access_conversions%s
+D s-crtl.ads		20140406181356 2c012597 system.crtl%s
+D s-exctab.ads		20140406181354 54135002 system.exception_table%s
+D s-ficobl.ads		20140406181355 078245e4 system.file_control_block%s
+D s-finmas.ads		20140406181356 814daec4 system.finalization_masters%s
+D s-finroo.ads		20140406181359 4ff27390 system.finalization_root%s
+D s-multip.ads		20140406181358 38ac9f73 system.multiprocessors%s
+D s-oscons.ads		20140409102057 170bacc8 system.os_constants%s
+D s-osinte.ads		20140406181359 a671a606 system.os_interface%s
+D s-parame.ads		20140406181358 06da98b2 system.parameters%s
+D s-pooglo.ads		20140406181357 542f33d0 system.pool_global%s
+D s-rannum.ads		20140406181354 5eb33f0a system.random_numbers%s
+D s-secsta.ads		20140406181359 86a2856d system.secondary_stack%s
+D s-soflin.ads		20140406181358 aa763b52 system.soft_links%s
+D s-stache.ads		20140406181355 a37c21ec system.stack_checking%s
+D s-stausa.ads		20140406181355 017a0a05 system.stack_usage%s
+D s-stalib.ads		20140406181355 fa0a3617 system.standard_library%s
+D s-stoele.ads		20140406181357 2dc34a04 system.storage_elements%s
+D s-stoele.adb		20140406181355 ed88f8fb system.storage_elements%b
+D s-stopoo.ads		20140406181357 b16154c2 system.storage_pools%s
+D s-stposu.ads		20140406181355 97a6219c system.storage_pools.subpools%s
+D s-stratt.ads		20140406181358 aedef97e system.stream_attributes%s
+D s-tasinf.ads		20140406181357 801abd01 system.task_info%s
+D s-taspri.ads		20140406181359 15f617a8 system.task_primitives%s
+D s-taskin.ads		20140406181355 3f821f32 system.tasking%s
+D s-traent.ads		20140406181355 b5116092 system.traceback_entries%s
+D s-unstyp.ads		20140406181356 510692af system.unsigned_types%s
+D s-wchcon.ads		20140406181358 1b7d22d2 system.wch_con%s
+D test.adb		20141230150512 9b0c210d test%b
+X 1 ada.ads
+16K9*Ada 19e8 61|6r6 6r34 7r6 7r28 8r6 8r37 9r6 9r23 10r6 10r35 12r6 12r24
+X 2 a-calend.ads
+36K13*Calendar 375e17 61|12w10 12r28
+X 3 a-contai.ads
+16K13*Containers 24e19 61|6r10 6r38
+X 5 a-convec.ads
+45k24*Vectors 474e27 61|6w21
+X 8 a-finali.ads
+40K13*Finalization 68e21 61|7w10 7r32
+X 10 a-iteint.ads
+24h9 Forward_Iterator
+32h9 Reversible_Iterator<24R9[5|70]>
+X 11 a-numeri.ads
+16K13*Numerics 32e17 61|8r10 8r41
+X 13 a-nuflra.ads
+41K22*Float_Random 72e30 61|8w19 8r50
+X 17 a-taside.ads
+39K13*Task_Identification 77e28 61|10w10 10r39
+X 18 a-textio.ads
+49K13*Text_IO 471e16 61|9w10 9r27
+X 21 gnatcoll.ads
+24K9*GNATCOLL 26e13 61|3r6 3r33 4r6 4r36 5r6 5r50 11r6 11r24
+X 22 gnatcoll-gmp.ads
+29K18*GMP 44e17 61|3r15 3r42 4r15 4r45 5r15 5r59 11w15 11r33
+X 23 gnatcoll-gmp-integers.ads
+49K22*Integers 304e26 61|3w19 3r46 4r19 4r49 5r19 5r63
+X 24 gnatcoll-gmp-integers-io.ads
+26K31*IO 44e29 61|4w28 4r58
+X 25 gnatcoll-gmp-integers-number_theoretic.ads
+24K31*Number_Theoretic 38e43 61|5w28 5r72
+X 27 interfac.ads
+38K9*Interfaces 179e15 61|2w6 2r22
+X 31 libquantum.ads
+7K9*libquantum 184e15 61|1w6 1r22
+22R9*quantum_reg 29e14 61|15r15
+76V13*quantum_new_qureg{22R9} 61|17s10 18s10
+83U14*quantum_print_qureg 61|20s4
+103V13*quantum_vectoradd{22R9} 61|19s10
+X 48 s-stausa.ads
+203U14*Initialize 204i<c,__gnat_stack_usage_initialize>22
+268U14*Output_Results 272i<c,__gnat_stack_usage_output_results>22
+X 61 test.adb
+14U11*test 14b11 21t4
+15r4 q1{31|22R9} 17m4 19m28 19r28
+15r7 q2{31|22R9} 18m4 19m31 19r31
+15r10 q3{31|22R9} 19m4 20r24
+

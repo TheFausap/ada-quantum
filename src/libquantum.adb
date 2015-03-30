@@ -18,6 +18,11 @@ package body libquantum is
       return( (FGF.Cos(a),FGF.Sin(a)) );
    end quantum_cexp;
 
+   function M(m1 : in quantum_matrix; x, y : in Integer) return Complex is
+   begin
+      return(m1.t(x+y*m1.cols));
+   end M;
+
    function quantum_prob_inline(a : Complex) return Float is
    begin
       return(a.Re * a.Re + a.Im * a.Im);
@@ -619,6 +624,17 @@ package body libquantum is
       end loop;
    end quantum_scalar_qureg;
 
+   procedure quantum_mvmult(y : out quantum_reg; A : in quantum_matrix;
+                            x : in quantum_reg) is
+   begin
+      for ix in 0 .. A.cols-1 loop
+         y.amplitude(ix) := (0.0, 0.0);
+         for iy in 0 .. A.cols-1 loop
+            y.amplitude(ix) := y.amplitude(ix) + M(A, iy, ix)*x.amplitude(iy);
+         end loop;
+      end loop;
+   end quantum_mvmult;
+
    function quantum_kronecker(reg1, reg2 : in quantum_reg) return quantum_reg is
       reg : quantum_reg;
       hsiz : Unsigned_64;
@@ -664,6 +680,30 @@ package body libquantum is
          end loop;
       return(f);
    end quantum_dot_product;
+
+   function quantum_dot_product_noconj(reg1, reg2 : in out quantum_reg) return Complex is
+      f : Complex := (0.0,0.0);
+      j : Integer;
+   begin
+      if reg2.hashw /= 0 then
+         quantum_reconstruct_hash(reg2);
+      end if;
+
+      for ix in 0 .. reg1.size-1 loop
+         if reg1.state(ix) /= 0 then
+            j := quantum_get_state(reg1.state(ix), reg2);
+            if j > -1 then
+               f := f + reg1.amplitude(ix)*reg2.amplitude(j);
+            end if;
+         else
+            j := quantum_get_state(Unsigned_64(ix), reg2);
+            if j > -1 then
+               f := f + reg1.amplitude(ix)*reg2.amplitude(j);
+            end if;
+         end if;
+         end loop;
+      return(f);
+   end quantum_dot_product_noconj;
 
    function quantum_vectoradd(reg1, reg2 : in out quantum_reg) return quantum_reg is
       reg : quantum_reg;
@@ -722,13 +762,67 @@ package body libquantum is
       return(reg);
    end quantum_vectoradd;
 
+   procedure quantum_vectoradd_inplace(reg1, reg2 : in out quantum_reg) is
+      addsize,k,j : Integer := 0;
+      reg2state : Boolean := False;
+      reg2siz : Integer;
+      p1 : Unsigned_64;
+      p2 : Complex;
+   begin
+      if reg1.hashw /= 0 or reg2.hashw /= 0 then
+         quantum_reconstruct_hash(reg1);
+
+         for ix in 0 .. reg2.size-1 loop
+            if quantum_get_state(reg2.state(ix),reg1) = -1 then
+               addsize := addsize + 1;
+            end if;
+         end loop;
+      end if;
+
+      if addsize /= 0 then
+         cvector.Set_Length(reg1.amplitude,Count_Type(reg1.size+addsize));
+         state_vector.Set_Length(reg1.state,Count_Type(reg1.size+addsize));
+      end if;
+
+      k := reg1.size;
+      reg2siz := Integer(state_vector.Length(reg2.state));
+
+      for ix in 0 .. reg2siz-1 loop
+         if reg2.state(ix) /= 0 then
+            reg2state := True;
+            exit;
+         end if;
+      end loop;
+
+      if not reg2state then
+         for ix in 0 .. reg2.size-1 loop
+            reg1.amplitude(ix) := reg1.amplitude(ix) + reg2.amplitude(ix);
+         end loop;
+      else
+         for ix in 0 .. reg2.size-1 loop
+            j := quantum_get_state(reg2.state(ix),reg1);
+            if j >= 0 then
+               reg1.amplitude(j) := reg1.amplitude(j) + reg2.amplitude(ix);
+            else
+               p1 := reg2.state(ix);
+               reg1.state(k) := p1;
+               p2 := reg2.amplitude(ix);
+               reg1.amplitude(k) := p2;
+               k := k + 1;
+            end if;
+         end loop;
+         reg1.size := reg1.size + addsize;
+      end if;
+   end quantum_vectoradd_inplace;
+
+
    procedure quantum_copy_qureg(src : in quantum_reg; dst : out quantum_reg) is
    begin
       dst := src;
-      Ada.Text_IO.Put_Line(System.Address_Image(dst'Address));
-      Ada.Text_IO.Put_Line(System.Address_Image(src'Address));
-      Ada.Text_IO.Put_Line(Integer'Image(dst.size));
-      Ada.Text_IO.Put_Line(Integer'Image(src.size));
+--      Ada.Text_IO.Put_Line(System.Address_Image(dst'Address));
+--      Ada.Text_IO.Put_Line(System.Address_Image(src'Address));
+--      Ada.Text_IO.Put_Line(Integer'Image(dst.size));
+--      Ada.Text_IO.Put_Line(Integer'Image(src.size));
    end quantum_copy_qureg;
 
 
@@ -740,6 +834,53 @@ package body libquantum is
       end loop;
       quantum_scalar_qureg((1.0/FGF.Sqrt(r),0.0),reg);
    end quantum_normalize;
+
+   function quantum_matrix_qureg(A : in function_access; t : in Float;
+                                 reg : in out quantum_reg; flags : qtime)
+                                 return quantum_reg is
+      reg2, tmp : quantum_reg;
+      breg2state, bregstate : Boolean := False;
+      t1 : Complex;
+   begin
+      reg2.width := reg.width;
+      reg2.size := reg.size;
+      reg2.hashw := 0;
+
+      ivector.Set_Length(reg2.hash,0);
+      cvector.Set_Length(reg2.amplitude,Count_Type(reg2.size));
+      state_vector.Set_Length(reg2.state,0);
+
+      for ix in 0 .. state_vector.Length(reg2.state)-1 loop
+         if reg2.state(Integer(ix)) /= 0 then
+            breg2state := True;
+            exit;
+         end if;
+      end loop;
+
+      for ix in 0 .. state_vector.Length(reg.state)-1 loop
+         if reg.state(Integer(ix)) /= 0 then
+            bregstate := True;
+            exit;
+         end if;
+      end loop;
+
+      if bregstate then
+         state_vector.Set_Length(reg2.state,Count_Type(reg2.size));
+      end if;
+
+      for ix in 0 .. reg.size-1 loop
+         if breg2state then
+            reg2.state(ix) := Unsigned_64(ix);
+         end if;
+         tmp := A.all(Unsigned_64(ix), t);
+         t1 := quantum_dot_product_noconj(tmp, reg);
+         reg2.amplitude(ix) := t1;
+         if flags /= QUANTUM_RK4_NODELETE then
+            quantum_delete_qureg(tmp);
+         end if;
+      end loop;
+      return(reg2);
+   end quantum_matrix_qureg;
 
    procedure quantum_gate1(target: in Integer; m : in quantum_matrix;
                            reg : in out quantum_reg) is
@@ -1682,5 +1823,73 @@ package body libquantum is
          mul_mod_n(N,f,3*width+1+ix, width, reg);
       end loop;
    end quantum_exp_mod_n;
+
+   function quantum_lanczos(H : in function_access; epsilon : in Float;
+                            reg: in out quantum_reg) return Float is
+      phi : qvector.Vector;
+      a, b : fvector.Vector;
+      eig, d, e : Float;
+      tmp : quantum_reg;
+   begin
+      qvector.Set_Length(phi,2);
+      fvector.Set_Length(a,2);
+      fvector.Set_Length(b,2);
+      quantum_copy_qureg(reg, phi(0));
+      quantum_normalize(phi(0));
+
+      tmp := quantum_matrix_qureg(H, 0.0, phi(0), QUANTUM_RK4_NODELETE);
+
+      fvector.Replace_Element(a,Integer(0), Re(quantum_dot_product(tmp, phi(0))));
+
+      quantum_copy_qureg(phi(0),phi(1));
+      quantum_scalar_qureg((-a(0),0.0),phi(1));
+      quantum_vectoradd_inplace(phi(1),tmp);
+
+      quantum_delete_qureg(tmp);
+
+   end quantum_lanczos;
+
+
+   function quantum_lanczos_modified(H : in function_access; epsilon : in Float;
+                                     reg : in out quantum_reg) return Float is
+      E1, E2, t, t1, h00, h11 : Float;
+      h01 : Complex;
+      tmp, tmp2 : quantum_reg;
+      E0, Eold : Float := Float(Float'Machine_Emax);
+   begin
+      for ix in 0 .. reg.size-1 loop
+         quantum_normalize(reg);
+         tmp := quantum_matrix_qureg(H, 0.0, reg, QUANTUM_RK4_NODELETE);
+         h00 := Re(quantum_dot_product(tmp, reg));
+         E0 := h00;
+         if abs(E0-Eold) < epsilon then
+            return(E0);
+         end if;
+         Eold := E0;
+
+         quantum_copy_qureg(reg, tmp2);
+         quantum_scalar_qureg((-h00,0.0),tmp2);
+         quantum_vectoradd_inplace(tmp, tmp2);
+         quantum_normalize(tmp);
+         tmp2 := quantum_matrix_qureg(H, 0.0, tmp, QUANTUM_RK4_NODELETE);
+
+         h11 := Re(quantum_dot_product(tmp2, tmp));
+         h01 := quantum_dot_product(tmp2, reg);
+
+         t1 := Re(h01*Conjugate(h01));
+         t := FGF.Sqrt(h11*h11-2.0*h00*h11+4.0*t1+h00*h00);
+         E1 := -(t-h11-h00)/2.0;
+         E2 := (t+h11+h00)/2.0;
+
+         if E1 < E2 then
+            quantum_scalar_qureg((-(t-h11+h00)/2.0,0.0)/h01,tmp);
+            quantum_vectoradd_inplace(reg, tmp);
+         else
+            quantum_scalar_qureg(((t+h11-h00)/2.0,0.0)/h01,tmp);
+            quantum_vectoradd_inplace(reg, tmp);
+         end if;
+      end loop;
+      return(-1.0); -- this is an error!
+   end quantum_lanczos_modified;
 
 end libquantum;

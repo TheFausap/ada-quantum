@@ -35,7 +35,7 @@ package ada_main is
    pragma Export (C, main, "main");
 
    type Version_32 is mod 2 ** 32;
-   u00001 : constant Version_32 := 16#d93015b1#;
+   u00001 : constant Version_32 := 16#8d95167f#;
    pragma Export (C, u00001, "mainB");
    u00002 : constant Version_32 := 16#fbff4c67#;
    pragma Export (C, u00002, "system__standard_libraryB");
@@ -415,9 +415,9 @@ package ada_main is
    pragma Export (C, u00189, "gnatcoll__gmp__integers__number_theoreticB");
    u00190 : constant Version_32 := 16#edf526bc#;
    pragma Export (C, u00190, "gnatcoll__gmp__integers__number_theoreticS");
-   u00191 : constant Version_32 := 16#9a2c36f1#;
+   u00191 : constant Version_32 := 16#5d0a9546#;
    pragma Export (C, u00191, "libquantumB");
-   u00192 : constant Version_32 := 16#a54d9ffb#;
+   u00192 : constant Version_32 := 16#f1e89c35#;
    pragma Export (C, u00192, "libquantumS");
    u00193 : constant Version_32 := 16#3e0cf54d#;
    pragma Export (C, u00193, "ada__numerics__auxB");

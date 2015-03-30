@@ -1,23 +1,38 @@
 <?xml version="1.0"?>
 <Locations >
   <Project>
-    <vfs_file>/Users/fausap/ADA-PRJS/libquantum/libquantum.gpr</vfs_file>
-    <file_marker current="true" column=" 7" line=" 1635" >
-      <vfs_file>/users/fausap/ADA-PRJS/libquantum/src/libquantum.adb</vfs_file>
+    <vfs_file>/users/fausap/ADA-PRJS/ada-quantum/libquantum.gpr</vfs_file>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_file>/users/fausap/ADA-PRJS/ada-quantum/src/libquantum.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_file>/users/fausap/ADA-PRJS/ada-quantum/src/libquantum.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_file>/users/fausap/ADA-PRJS/ada-quantum/src/main.adb</vfs_file>
+    </file_marker>
+    <file_marker current="true" column=" 1" line=" 1" >
+      <vfs_file>/Users/fausap/.gps/log_files/main.adb$log</vfs_file>
     </file_marker>
   </Project>
   <Project >
-    <file_marker column=" 20" line=" 17">
-      <vfs_file >/Users/fausap/ADA-PRJS/def1/src/main.adb</vfs_file>
-    </file_marker>
-    <file_marker column=" 1" line=" 1">
-      <vfs_file >/Users/fausap/ADA-PRJS/libquantum/libquantum.gpr</vfs_file>
-    </file_marker>
-    <file_marker column=" 1" line=" 1684">
+    <vfs_file >/Users/fausap/ADA-PRJS/libquantum/libquantum.gpr</vfs_file>
+    <file_marker current="true" column=" 7" line=" 1635">
       <vfs_file >/users/fausap/ADA-PRJS/libquantum/src/libquantum.adb</vfs_file>
     </file_marker>
+  </Project>
+  <Project >
+    <file_marker column=" 1" line=" 1">
+      <vfs_file >/users/fausap/ADA-PRJS/ada-quantum/src/libquantum.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1">
+      <vfs_file >/users/fausap/ADA-PRJS/ada-quantum/src/libquantum.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1">
+      <vfs_file >/users/fausap/ADA-PRJS/ada-quantum/src/main.adb</vfs_file>
+    </file_marker>
     <file_marker current="true" column=" 1" line=" 1">
-      <vfs_file >/Users/fausap/ADA-PRJS/libquantum/src/main.adb</vfs_file>
+      <vfs_file >/Users/fausap/.gps/log_files/main.adb$log</vfs_file>
     </file_marker>
   </Project>
   <Project >

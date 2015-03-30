@@ -31,7 +31,7 @@ RV NO_IMPLEMENTATION_ATTRIBUTES
 RV NO_IMPLEMENTATION_PRAGMAS
 RV SPARK_05
 
-U main%b		main.adb		d93015b1 NE OO SU
+U main%b		main.adb		8d95167f NE OO SU
 W ada%s			ada.ads			ada.ali
 W ada.calendar%s	a-calend.adb		a-calend.ali
 W ada.containers%s	a-contai.ads		a-contai.ali
@@ -97,8 +97,8 @@ D interfac.ads		20140406181359 69adb1b9 interfaces%s
 D i-c.ads		20140406181358 5421119b interfaces.c%s
 D i-cstrin.ads		20140406181357 341d0ddf interfaces.c.strings%s
 D i-cstrea.ads		20140406181357 febc86ed interfaces.c_streams%s
-D libquantum.ads	20141225173847 b069e817 libquantum%s
-D main.adb		20141229065716 22caf654 main%b
+D libquantum.ads	20141230175846 e4ccebd9 libquantum%s
+D main.adb		20141230135531 22caf654 main%b
 D system.ads		20140406181354 f2f2d889 system%s
 D s-atacco.ads		20140406181355 4c36d12f system.address_to_access_conversions%s
 D s-arit64.ads		20140406181357 404da5f2 system.arith_64%s
@@ -136,14 +136,14 @@ D s-wchcon.ads		20140406181358 1b7d22d2 system.wch_con%s
 X 1 ada.ads
 16K9*Ada 19e8 36|6r6 6r34 7r6 7r28 8r6 8r37 9r6 9r23 10r6 10r35 12r6 12r24
 . 24r15 27r26 33r17 40r4 52r4 53r4 60r4 66r4 72r4 84r4 89r7 90r20 99r7 100r20
-. 111r4 116r4 118r4 122r7 127r7 128r20 136r4 157r4 179r7 187r7 188r20 196r17
+. 111r4 116r4 118r4 122r7 127r7 128r20 136r4 152r4 164r7 172r7 173r20 181r17
 X 2 a-calend.ads
-36K13*Calendar 375e17 36|12w10 12r28 24r19 33r21 90r24 100r24 128r24 188r24
-. 196r21
+36K13*Calendar 375e17 36|12w10 12r28 24r19 33r21 90r24 100r24 128r24 173r24
+. 181r21
 38I9*Time<200I9> 36|24r28
 50O12*Day_Duration{duration} 36|25r17 27r47
-52V13*Clock{38I9} 36|33s30 90s33 100s33 128s33 188s33 196s30
-63U14*Split 36|34s4 91s7 101s7 129s7 189s7 197s4
+52V13*Clock{38I9} 36|33s30 90s33 100s33 128s33 173s33 181s30
+63U14*Split 36|34s4 91s7 101s7 129s7 174s7 182s4
 200I9 Time_Rep<long_integer>
 X 3 a-contai.ads
 16K13*Containers 24e19 36|6r10 6r38
@@ -165,19 +165,19 @@ X 13 a-nuflra.ads
 X 17 a-taside.ads
 39K13*Task_Identification 77e28 36|10w10 10r39
 43P9*Task_Id<67|107P9>
-53V13*Current_Task{43P9} 36|95s18 105s18 133s18 193s18
-59U14*Abort_Task 36|95s7 105s7 133s7 193s7
+53V13*Current_Task{43P9} 36|95s18 105s18 133s18 178s18
+59U14*Abort_Task 36|95s7 105s7 133s7 178s7
 X 18 a-textio.ads
 49K13*Text_IO 471e16 36|9w10 9r27 27r30 40r8 52r8 53r8 60r8 66r8 72r8 84r8
-. 89r11 99r11 111r8 116r8 118r8 122r11 127r11 136r8 157r8 179r11 187r11
-166U14*New_Line 36|185s7
-242U14*Put 36|92s7 102s7 130s7 179s19 181s7 190s7 198s4
+. 89r11 99r11 111r8 116r8 118r8 122r11 127r11 136r8 152r8 164r11 172r11
+166U14*New_Line 36|170s7
+242U14*Put 36|92s7 102s7 130s7 164s19 166s7 175s7 183s4
 263U14*Put_Line 36|40s16 52s16 53s16 60s16 66s16 72s16 84s16 89s19 94s7 99s19
-. 104s7 111s16 116s16 118s16 122s19 127s19 132s7 136s16 141s4 157s16 183s7
-. 187s19 192s7 200s4
+. 104s7 111s16 116s16 118s16 122s19 127s19 132s7 136s16 141s4 152s16 168s7
+. 172s19 177s7 185s4
 X 19 a-tifiio.ads
 26k21*Fixed_IO 69e25 36|27r38
-48U14 Put 36|93s7[27] 103s7[27] 131s7[27] 191s7[27] 199s4[27]
+48U14 Put 36|93s7[27] 103s7[27] 131s7[27] 176s7[27] 184s4[27]
 X 25 gnatcoll.ads
 24K9*GNATCOLL 26e13 36|3r6 3r33 4r6 4r36 5r6 5r50 11r6 11r24
 X 26 gnatcoll-gmp.ads
@@ -187,22 +187,22 @@ X 26 gnatcoll-gmp.ads
 X 27 gnatcoll-gmp-integers.ads
 49K22*Integers 304e26 36|3w19 3r46 4r19 4r49 5r19 5r63
 53R9*Big_Integer<8|50R9> 299e17 36|23r31
-88U14*Set 36|143s4 144s4 148s4 149s4 170s7 173s7
+88U14*Set 36|143s4 144s4 146s4 147s4 155s7 158s7
 91U14*Set 36|35s4 138s4
-106V14*">"{boolean} 36|169s9
-107V14*">"{boolean} 36|177s32
-110V14*"<"{boolean} 36|177s14
+106V14*">"{boolean} 36|154s9
+107V14*">"{boolean} 36|162s32
+110V14*"<"{boolean} 36|162s14
 140V14*"+"{53R9} 36|143s14
 161V14*"-"{53R9} 36|144s14
-210V14*"/"{53R9} 36|182s15
-229V14*"rem"{53R9} 36|148s13 149s13
+210V14*"/"{53R9} 36|167s15
+229V14*"rem"{53R9} 36|146s13 147s13
 245U14*Raise_To_N 36|139s4
 X 28 gnatcoll-gmp-integers-io.ads
 26K31*IO 44e29 36|4w28 4r58
-30U14*Put 36|180s7 182s7
+30U14*Put 36|165s7 167s7
 X 29 gnatcoll-gmp-integers-number_theoretic.ads
 24K31*Number_Theoretic 38e43 36|5w28 5r72
-28U14*Get_GCD 36|154s4 155s4
+28U14*Get_GCD 36|149s4 150s4
 X 31 interfac.ads
 38K9*Interfaces 179e15 36|2w6 2r22
 54I9*Integer_64<long_integer>
@@ -212,55 +212,55 @@ X 32 i-c.ads
 37I9*long<long_integer>
 45M9*unsigned_long
 X 35 libquantum.ads
-7K9*libquantum 167e15 36|1w6 1r22
+7K9*libquantum 184e15 36|1w6 1r22
 22R9*quantum_reg 29e14 36|15r12
-52V13*quantum_getwidth{integer} 36|36s13 37s14
-54V13*quantum_gcd{long_long_integer} 36|45s17
-55U14*quantum_frac_approx 36|114s4
-60U14*quantum_qec_set_status 36|32s4
-67V13*quantum_new_qureg{22R9} 36|55s10
-73U14*quantum_delete_qureg 36|202s4
-77U14*quantum_addscratch 36|63s4
-80V13*quantum_bmeasure{integer} 36|69s16
-82V13*quantum_measure{integer} 36|86s9
-92U14*quantum_copy_qureg 36|201s4
-100U14*quantum_hadamard 36|57s7
-126U14*quantum_cnot 36|79s7 80s7 81s7
-129U14*quantum_qft 36|74s4
-132U14*quantum_exp_mod_n 36|65s4
+61V13*quantum_getwidth{integer} 36|36s13 37s14
+63V13*quantum_gcd{long_long_integer} 36|45s17
+64U14*quantum_frac_approx 36|114s4
+69U14*quantum_qec_set_status 36|32s4
+76V13*quantum_new_qureg{22R9} 36|55s10
+82U14*quantum_delete_qureg 36|187s4
+86U14*quantum_addscratch 36|63s4
+89V13*quantum_bmeasure{integer} 36|69s16
+91V13*quantum_measure{integer} 36|86s9
+102U14*quantum_copy_qureg 36|186s4
+117U14*quantum_hadamard 36|57s7
+143U14*quantum_cnot 36|79s7 80s7 81s7
+146U14*quantum_qft 36|74s4
+149U14*quantum_exp_mod_n 36|65s4
 X 36 main.adb
-14U11*Main 14b11 204l5 204t9
+14U11*Main 14b11 189l5 189t9
 15r4 q1{35|22R9} 55m4 57m27 57r27 63m34 63r34 65m52 65r52 69m35 69r35 74m23
-. 74r23 79m34 79r34 80m34 80r34 81m34 81r34 86m25 86r25 201r23 202m25 202r25
-15r7 q2{35|22R9} 201m26
+. 74r23 79m34 79r34 80m34 80r34 81m34 81r34 86m25 86r25 186r23 187m25 187r25
+15r7 q2{35|22R9} 186m26
 16i4 width{integer} 36m4 41r41 55r30 56r19 65r37 74r16 78r20 79r23 80r20
 . 81r23 108r24 114r28
 16i11 swidth{integer} 37m4 41r49 63r25 65r44 68r21
 17i4 x{integer} 45r68 46r17 48m7 49r13 65r34
 17i7 dummy{integer} 69m7
-17i14 d1{integer} 34m20 91m23 101m23 129m23 189m23 197m20
-17i17 d2{integer} 34m23 91m26 101m26 129m26 189m26 197m23
-17i20 d3{integer} 34m26 91m29 101m29 129m29 189m29 197m26
+17i14 d1{integer} 34m20 91m23 101m23 129m23 174m23 182m20
+17i17 d2{integer} 34m23 91m26 101m26 129m26 174m26 182m23
+17i20 d3{integer} 34m26 91m29 101m29 129m29 174m29 182m26
 18i4 c{integer} 86m4 88r7 98r7 111r52 112r45 114m24 114r24 118r72
 18i7 q{integer} 109m4 112r54 114m26 114r26 119r48 121r8 121r28 123m7 123r12
 . 126r8 136r63 139r34 141r53
 18i10 qq{integer} 120m4 121r32
 18i14 x1{integer} 49m7 52r56 138r18 141r27
 19i4 N{long_long_integer} 31m4 35r18 36r38 36r40 37r39 40r57 45r47 48r36
-. 65r30 179r47
+. 65r30 164r47
 20m4 q_u{31|66M9} 108m4 109r17 120r18
 21r4 G{13|45R9} 38r10 47r26
 22f4 pp{float} 47m7 48r20
 23r4 ipow{27|53R9} 138m8 139m15 139r15 143r10 144r10
-23r10 a{27|53R9} 143m8 148m8 148r11 154r17 154m19 169r7 170r18
-23r13 b{27|53R9} 144m8 149m8 149r11 155r17 155m19 169r11 173r18
-23r16 factor{27|53R9} 170m11 173m11 177r7 177r25 180r11 182r16
-23r24 Nbig{27|53R9} 35m8 148r17 149r17 154r12 155r12 177r16 182r11
-24i4 time_date{2|38I9} 33m4 34r10 90m7 91r13 100m7 101r13 128m7 129r13 188m7
-. 189r13 196m4 197r10
-25o4 start{2|50O12} 34m29 93r16 103r16 131r16 191r16 199r13
-25o10 stop{2|50O12} 91m32 93r11 101m32 103r11 129m32 131r11 189m32 191r11
-. 197m29 199r8
+23r10 a{27|53R9} 143m8 146m8 146r11 149r17 149m19 154r7 155r18
+23r13 b{27|53R9} 144m8 147m8 147r11 150r17 150m19 154r11 158r18
+23r16 factor{27|53R9} 155m11 158m11 162r7 162r25 165r11 167r16
+23r24 Nbig{27|53R9} 35m8 146r17 147r17 149r12 150r12 162r16 167r11
+24i4 time_date{2|38I9} 33m4 34r10 90m7 91r13 100m7 101r13 128m7 129r13 173m7
+. 174r13 181m4 182r10
+25o4 start{2|50O12} 34m29 93r16 103r16 131r16 176r16 184r13
+25o10 stop{2|50O12} 91m32 93r11 101m32 103r11 129m32 131r11 174m32 176r11
+. 182m29 184r8
 27K12 Fix_IO[19|26] 28r8
 56i8 ix{integer} 57r24
 68i8 ix{integer}

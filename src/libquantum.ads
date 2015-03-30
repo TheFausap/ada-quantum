@@ -36,8 +36,17 @@ package libquantum is
       reg : qvector.Vector;
    end record;
 
+   type function_access is access function (u1 : Unsigned_64; d1 : Float)
+     return quantum_reg;
+
    type qreg_ref is access all quantum_reg;
    type qmatrix_ref is access all quantum_matrix;
+
+   type qsolver is (QUANTUM_SOLVER_LANCZOS,
+                    QUANTUM_SOLVER_LANCZOS_MODIFIED,
+                    QUANTUM_SOLVER_IMAGINARY_TIME);
+   type qtime is (QUANTUM_RK4_NODELETE,
+                  QUANTUM_RK4_IMAGINARY);
 
    qec_type : Integer := 0;
    qec_width : Integer := 0;
@@ -89,10 +98,18 @@ package libquantum is
    procedure quantum_scalar_qureg(c : in Complex; reg : in out quantum_reg);
    function quantum_kronecker(reg1, reg2 : in quantum_reg) return quantum_reg;
    function quantum_dot_product(reg1, reg2 : in out quantum_reg) return Complex;
+   function quantum_dot_product_noconj(reg1, reg2 : in out quantum_reg) return Complex;
    procedure quantum_copy_qureg(src : in quantum_reg; dst : out quantum_reg);
    function quantum_vectoradd(reg1, reg2 : in out quantum_reg) return quantum_reg;
+   procedure quantum_vectoradd_inplace(reg1, reg2 : in out quantum_reg);
+   procedure quantum_mvmult(y : out quantum_reg; A : in quantum_matrix;
+                            x : in quantum_reg);
 
    procedure quantum_normalize(reg : in out quantum_reg);
+
+   function quantum_matrix_qureg(A : in function_access; t : in Float;
+                                 reg : in out quantum_reg; flags : in qtime)
+                                 return quantum_reg;
 
    procedure quantum_gate1(target : in Integer; m : in quantum_matrix;
                            reg : in out quantum_reg);
